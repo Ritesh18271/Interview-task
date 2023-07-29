@@ -1,0 +1,36 @@
+<h1>Angular-Crud-App</h1>
+
+<div class="card">
+<h2> Update Products Here ! </h2>
+  <form  [formGroup]="reactiveForm" (ngSubmit)="submit()">
+    <div class="fields">
+      <label for="titel"> Title: </label>
+      <input type="text" class="form-control" formControlName="title" placeholder="title">
+    </div>
+    <div class="fields">
+      <label for="price"> Price: </label>
+      <input type="text" class="form-control"formControlName="price" placeholder="price">
+    </div>
+    <div class="fields">
+      <label for="description"> Description </label>
+      <input type="text" class="form-control" formControlName="description" placeholder="description">
+    </div>
+    <div class="fields">
+      <label for="category"> Category </label>
+      <input type="text" class="form-control" formControlName="category" placeholder="category">
+    </div>
+    <div class="fields">
+      <label for="image"> Image </label>
+      <input type="text" class="form-control" formControlName="image" placeholder="image">
+    </div>
+    <div class="fields">
+      <label for="rate"> Rate </label>
+      <input type="text" class="form-control" formControlName="rate" placeholder="rate">
+    </div>
+    <div class="fields">
+      <label for="count"> Count </label>
+      <input type="text" class="form-control" formControlName="count" placeholder="count">
+    </div>
+    <button class="btn btn-primary" (click)="update()">Update</button>
+  </form>
+</div>
