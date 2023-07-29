@@ -1,0 +1,74 @@
+<h1>Angular-Crud-App</h1>
+
+<div class="input-group rounded">
+  <label for="" > Search :</label>
+  <input type="search" class="col-md-4 rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" [(ngModel)]="searchtxt"/>
+  <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+</div>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Image</th>
+        <th>Rating</th>
+        <th>Options</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data | search:searchtxt">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.category}}</td>
+        <td><img src="{{item.image}}"></td>
+        <td>
+          <table class="table table-bordered">
+              <tr>
+                <th>
+                  Rate
+                </th>
+                <td>
+                  {{item.rating.rate}}
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  Count
+                </th>
+                <td>
+                  {{item.rating.count}}
+                </td>
+              </tr>
+
+
+          </table>
+        </td>
+        <td>
+           <button class="btn btn-primary" (click)="updatePage(item.id)">
+            Update
+           </button>
+           &nbsp;
+           <button class="btn btn-danger" (click)="delet(item)">
+            Delete
+           </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <ngb-pagination size="sm" [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5"
+                  [boundaryLinks]="true" [pageSize]="pageSize" class="d-flex justify-content-end"></ngb-pagination> -->
+                  <ngb-pagination [collectionSize]="collectionSize"
+                  [(page)]="page"
+                  [pageSize]="pageSize"
+                  (pageChange)="onPageChange()">
+                 </ngb-pagination>
+</div>
